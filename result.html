@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>査定結果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>査定結果</h1>
+        <div class="result-item">
+            <p>推定価格: {{ price }}</p>
+            <p>アップロードした画像:</p>
+            {% if image_url %}
+                <img src="{{ url_for('static', filename=image_url) }}" alt="Uploaded Image" class="uploaded-image">
+            {% endif %}
+        </div>
+        <div class="result-item">
+            <p>物件タイプ: {{ property_type }}</p>
+            <p>経年劣化年数: {{ age }}年</p>
+        </div>
+        <a href="/" class="btn">戻る</a>
+    </div>
+</body>
+</html>
